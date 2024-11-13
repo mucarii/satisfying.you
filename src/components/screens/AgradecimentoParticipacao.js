@@ -1,30 +1,37 @@
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
-import Icon from 'react-native-vector-icons/MaterialIcons'
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import { useEffect } from 'react';
 
-// Componente funcional AgradecimentoParticipacao
+//teste
 const AgradecimentoParticipacao = ({ navigation }) => {
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            navigation.navigate('Menu'); // Substituir para o menu quando implementado
+        }, 5000);
+        // Limpa o timer se o componente for desmontado antes dos 5 segundos
+        return () => clearTimeout(timer);
+    }, [navigation]);
+
     return (
         <View style={estilos.container}>
-            {/* Botão de voltar que navega para a tela anterior */}
+            {/* Botão invisível para voltar */}
             <TouchableOpacity style={estilos.botaoVoltar} onPress={() => navigation.goBack()}>
-                 {/* Ícone de seta para voltar */}
-                <Icon name="arrow-back" size={24} color="transparent" />
+                <Icon name="arrow-back" size={24} color="transparent" /> {/* Ícone invisível */}
             </TouchableOpacity>
             
-            {/* Caixa retangular com ícone de fechamento */}
+            {/* Ícone de fechar no canto superior direito */}
             <View style={estilos.rectangle}>
-                <Icon name="close" size={36} color="transparent" />
+                <Icon name="close" size={36} color="#FFFFFF" />
             </View>
             
-            {/* Texto de agradecimento com estilo 'headerText' */}
-            <Text style={estilos.headerText}>Obrigado por participar da pesquisa!
-            <br />Aguardamos você no próximo ano!</Text>
+            <Text style={estilos.headerText}>
+                Obrigado por participar da pesquisa!
+                {'\n'}Aguardamos você no próximo ano!
+            </Text>
         </View>
-    )
-}
+    );
+};
 
-
-// Estilos utilizados no componente
 const estilos = StyleSheet.create({
     container: {
         flex: 1,
@@ -60,6 +67,6 @@ const estilos = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-})
+});
 
-export default AgradecimentoParticipacao
+export default AgradecimentoParticipacao;

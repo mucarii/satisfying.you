@@ -9,18 +9,15 @@ import AgradecimentoParticipacao from './src/components/screens/AgradecimentoPar
 
 const Stack = createStackNavigator()
 
-// Componente principal do aplicativo
 const App = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator initialRouteName="Login">
-                {/* Definindo a primeira tela (Login) */}
                 <Stack.Screen 
                     name="Login" 
                     component={Login} 
-                    options={{ headerShown: false }} 
+                    options={{ headerShown: false }}
                 />
-                 {/* Tela de Cadastro */}
                 <Stack.Screen 
                     name="Cadastro" 
                     component={Cadastro}
@@ -29,31 +26,29 @@ const App = () => {
                         headerStyle: estilos.headerDefault,
                         headerTitleStyle: estilos.headerTitle,
                         headerLeftContainerStyle: estilos.headerLeft,
-                        headerTintColor: '#4B369E',
+                        headerTintColor: '#372775',
                         headerBackTitle: null,
                         headerBackImageStyle: estilos.navigationBackImage,
                     }}
                 />
-                 {/* Tela de Recuperar Senha */}
                 <Stack.Screen 
                     name="RecuperarSenha" 
-                    component={RecuperarSenha} 
+                    component={RecuperarSenha}
                     options={{
                         title: 'Recuperação de Senha',
                         headerStyle: estilos.headerDefault,
                         headerTitleStyle: estilos.headerTitle,
-                        headerTintColor: '#4B369E',
+                        headerTintColor: '#372775',
                     }}
                 />
-                {/* Tela de Agradecimento pela participação */}
                 <Stack.Screen 
                     name="AgradecimentoParticipacao" 
-                    component={AgradecimentoParticipacao} 
+                    component={AgradecimentoParticipacao}
                     options={{
                         title: 'Obrigado!',
                         headerStyle: estilos.headerDefault,
                         headerTitleStyle: estilos.headerTitle,
-                        headerTintColor: '#4B369E',
+                        headerTintColor: '#372775',
                     }}
                 />
             </Stack.Navigator>
@@ -75,5 +70,10 @@ const estilos = StyleSheet.create({
     headerLeft: {
         paddingLeft: 0,
     },
+    navigationBackImage: {
+        width: 60,
+        height: 60,
+    }
 })
+
 export default App
